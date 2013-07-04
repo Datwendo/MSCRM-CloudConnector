@@ -40,16 +40,17 @@ Register or Update the assembly and plug-in
 7.	Verify that Select All, Sandbox, and Database are checked. Click Register Selected Plugins.
 
 Registering the Steps
-1.	In the Registered Plugins & Custom Workflow Activities tree view, select the plug-in DatwendoMSCRMPlugins
-2.	Select Register and then click Register New Step.
+1.	In the Registered Plugins & Custom Workflow Activities tree view, select the plug-in DatwendoMSCRMPlugins,
+2.	Select Register and then click Register New Step,
 3.	In the Register New Step dialog, enter the registration parameters:
-Message: Create
-Primary Entity: [your entity]
-Execution Mode: Synchronous
-Event Pipeline Stage of Execution: Pre Operation
-Step Deployment: Server
-4.	Verify that the Plugin field value is set to the plug-in type. Datwendo.Crm.Sdk.ConnectorPlugin or Datwendo.Crm.Sdk.InsertConnectorPlugin
-5.	Click Register New Step.
+    Message: Create
+    Primary Entity: [your entity]
+    Execution Mode: Synchronous
+    Event Pipeline Stage of Execution: Pre Operation
+    Step Deployment: Server
+4.	Verify that the Plugin field value is set to the plug-in type: 
+    Datwendo.Crm.Sdk.ConnectorPlugin or Datwendo.Crm.Sdk.InsertConnectorPlugin
+5.	Click Register New Step,
 6.	The step is now registered. You can close the tool.
 
 
