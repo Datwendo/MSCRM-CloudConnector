@@ -7,7 +7,7 @@ Datwendo Cloud Connector for Microsoft Dynamics CRM
 License New BSD (BSD)
 Instructions
 
-This plugin could be installed directly from our Datwendo Solution but you may also register or update it independently (beware that it won�t run if the Connector Entity is not created, which will only be done by importing the Datwendo solution).
+This plugin could be installed directly from our Datwendo Solution but you may also register or update it independently (beware that it won't run if the Connector Entity is not created, which will only be done by importing the Datwendo solution).
 The solution does not take care of registering the Steps for the plugin and you need to apply steps in this documentation before using the Cloud Connector Service.
 
 The Plugin assembly contains 2 pluggins:
@@ -32,11 +32,11 @@ If you want up update the plugin from its source code, open the plug-in project 
 Register or Update the assembly and plug-in
 
 1.	Launch the Plugin Registration tool (in the bin folder of MS CRM Sdk).
-2.	In the Plugin Registration tool�s �Connection� dialog, enter your Microsoft Dynamics CRM server information and click the Connect button.
+2.	In the Plugin Registration tools Connection dialog, enter your Microsoft Dynamics CRM server information and click the Connect button.
 3.	Enter a password when prompted to.
 4.	Select an organization in the list and click the Connect button again or just double click an organization in the list.
 5.	If the plugin is not already there, select Register and then click Register New Assembly, else select the plugin in the tree and select Update from right button menu
-6.	In the Register New Plugin or Update form, click the ellipses � button under Step #1, navigate to the bin\Release folder of the plug-in project, and select the plug-in assembly DatwendoMSCRMPlugins.dll.
+6.	In the Register New Plugin or Update form, click the ellipses ... button under Step #1, navigate to the bin\Release folder of the plug-in project, and select the plug-in assembly DatwendoMSCRMPlugins.dll.
 7.	Verify that Select All, Sandbox, and Database are checked. Click Register Selected Plugins.
 
 Registering the Steps
