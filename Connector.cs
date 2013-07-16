@@ -45,8 +45,8 @@ namespace Datwendo.Crm.Sdk
                             SecretKey           = c.Attributes["dtw_secretkey"].ToString(),
                             IsFast              = ((OptionSetValue)c.Attributes["dtw_protocol"]).Value == 100000000,
                             ServiceUrl          = c.Attributes["dtw_serviceurl"].ToString(),
-                            PublisherId         = 0,//(int)c.Attributes["dtw_publisher"],
-                            TransacKeyDelay     = 200,//(int)c.Attributes["dtw_Transackeydelay"],
+                            PublisherId         = (int)c.Attributes["dtw_publisher"],
+                            TransacKeyDelay     = (((int)c.Attributes["dtw_transactiondelay"]) > 100 ) ? (int)c.Attributes["dtw_transactiondelay"]:200,
 
                             AssociatedEntity    = targetEntity,
                             AssociatedAttribute = c.Attributes["dtw_associatedattribute"].ToString()
