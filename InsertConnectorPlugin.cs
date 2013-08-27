@@ -11,16 +11,16 @@ namespace Datwendo.Crm.Sdk
 
 			if (context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity)
             {
-				Entity entity = (Entity)context.InputParameters["Target"];
+				Entity entity           = (Entity)context.InputParameters["Target"];
                 // Find associated Connector
-                Connector connector = Connector.FindConnectors(serviceProvider, context, entity.LogicalName);
+                Connector connector     = Connector.FindConnectors(serviceProvider, context, entity.LogicalName);
                 if (connector != null)
                 {
                     // Obtain the contact from the execution context shared variables.
                     if (context.SharedVariables.Contains("ConnectorId"))
                     {
-                        string result = (string)context.SharedVariables["ConnectorId"];
-                        int val = 0;
+                        string result   = (string)context.SharedVariables["ConnectorId"];
+                        int val         = 0;
                         if (!string.IsNullOrEmpty(result))
                         {
                             if (int.TryParse(result, out val))

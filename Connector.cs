@@ -18,6 +18,8 @@ using Microsoft.Xrm.Sdk.Client;
 
 namespace Datwendo.Crm.Sdk
 {
+    public enum RequestType { NoData = 0, DataString = 1, DataBlob = 2 }
+
     public class Connector
     {
         public string Name { get; set; }
@@ -26,9 +28,11 @@ namespace Datwendo.Crm.Sdk
         public int TransacKeyDelay { get; set; }
         public string SecretKey { get; set; }
         public bool IsFast { get; set; }
+        public RequestType RequestType { get; set; }
         public string ServiceUrl { get; set; }
         public string AssociatedEntity { get; set; }
         public string AssociatedAttribute { get; set; }
+        public string SourceAttribute { get; set; }
         public string Format { get; set; }
 
         public static Connector FindConnectors(IServiceProvider serviceProvider, IPluginExecutionContext context, string targetEntity)
@@ -47,9 +51,12 @@ namespace Datwendo.Crm.Sdk
                             ServiceUrl          = c.Attributes["dtw_serviceurl"].ToString(),
                             PublisherId         = (int)c.Attributes["dtw_publisher"],
                             TransacKeyDelay     = (((int)c.Attributes["dtw_transactiondelay"]) > 100 ) ? (int)c.Attributes["dtw_transactiondelay"]:200,
-
+                            RequestType         = (((OptionSetValue)c.Attributes["dtw_requesttype"]).Value == 100000002) ? RequestType.DataBlob :
+                                                    (((OptionSetValue)c.Attributes["dtw_requesttype"]).Value == 100000001) ? RequestType.DataString : RequestType.NoData,
                             AssociatedEntity    = targetEntity,
-                            AssociatedAttribute = c.Attributes["dtw_associatedattribute"].ToString()
+                            AssociatedAttribute = c.Attributes["dtw_associatedattribute"].ToString(),
+
+                            SourceAttribute     = c.Attributes.ContainsKey("dtw_sourceattribute") ? c.Attributes["dtw_sourceattribute"].ToString(): string.Empty
                         };
             return query.SingleOrDefault();
         }
